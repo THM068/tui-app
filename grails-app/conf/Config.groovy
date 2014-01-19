@@ -89,3 +89,8 @@ log4j = {
            'org.hibernate',
            'net.sf.ehcache.hibernate'
 }
+
+grails.flikr.baseUrl = "http://api.flickr.com/"
+grails.flikr.path = "services/rest/"
+grails.flikr.apiKey = "18ca527064d2a55e4f09f655efcac8f3"
+

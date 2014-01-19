@@ -16,13 +16,23 @@
     <h3>Search for an image</h3>
     <div id='image-search-container'>
         <g:form controller="home" action="search" >
-            <input type="text" placeholder="Search for an image" class="textfield-size">
-            <input type="submit" class="btn btn-primary" value="Search">
+            <input type="text" name="q" placeholder="Search for an image" class="textfield-size" id="searchTerm">
+            <g:select name="numPerPage" from="${[5,10,20,30,40]}" value="20"  />
+
+            <input type="submit" class="btn btn-primary" value="Search" id="searchBtn">
+            <span class="loading">
+                <img src="${resource(dir: 'images', file: 'spinner.gif')}" alt="">
+                <span>Images loading ....</span>
+            </span>
         </g:form>
+    </div>
+    <div class="alert alert-error" style="display: none">
 
-        <div id="image-tile-container">
-
-        </div>
+    </div>
+    <div id="image-tile-container">
+        <g:each in="${imageList}" var="map">
+            <g:render template="imageInfo"  model="[image: map]" />
+        </g:each>
     </div>
 
 </body>
