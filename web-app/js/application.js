@@ -28,9 +28,10 @@ function doSearch(form) {
 
             $.each(data, function(i,image) {
                   var imageContainer = '<div class="img-container">';
-                  var image = '<img src="http://farm' + image.farm + '.staticflickr.com/' + image.server + '/' + image.id + '_' + image.secret + '_m.jpg">';
-
+                  var image = '<img src="http://farm' + image.farm + '.staticflickr.com/' + image.server + '/' + image.id + '_' + image.secret + '_q.jpg">';
+                  var bookmark = '<div><a href="#">Bookmark</a></div>';
                  imageContainer += image;
+                 imageContainer += bookmark;
                  imageContainer += '<div>';
                  $imageTileContainer.append(imageContainer);
 
