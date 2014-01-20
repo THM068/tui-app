@@ -1,6 +1,6 @@
 $(function(){
 
-    tileImageslikePinterest();
+    //tileImageslikePinterest();
 
     $('#searchBtn').click(function(e){
         e.preventDefault();
