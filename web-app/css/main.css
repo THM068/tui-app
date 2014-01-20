@@ -23,3 +23,11 @@ body {
     width: 1300px;
 }
 
+#image-search-container {
+    margin-left: 100px;;
+}
+
+#exportResultLink {
+    display: none;
+}
+

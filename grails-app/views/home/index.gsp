@@ -13,13 +13,14 @@
      <meta name="layout" content="main"/>
 </head>
 <body>
-    <h3>Search for an image</h3>
     <div id='image-search-container'>
+        <h3>Search for an image</h3>
         <g:form controller="home" action="search" >
             <input type="text" name="q" placeholder="Search for an image" class="textfield-size" id="searchTerm">
             <g:select name="numPerPage" from="${[5,10,20,30,40]}" value="20"  />
 
             <input type="submit" class="btn btn-primary" value="Search" id="searchBtn">
+            <g:link class="btn btn-primary" controller="home" action="exportResults" elementId="exportResultLink">Export Results</g:link>
             <span class="loading">
                 <img src="${resource(dir: 'images', file: 'spinner.gif')}" alt="">
                 <span>Images loading ....</span>

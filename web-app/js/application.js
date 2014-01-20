@@ -13,6 +13,7 @@ function doSearch(form) {
     var params = $(form).serialize();
     var url = form.attr('action');
     $('.loading').show();
+    $('#exportResultLink').hide();
 
     $.get(url, params, function(data) {
         if(data.success == false) {
@@ -34,11 +35,9 @@ function doSearch(form) {
                  imageContainer += bookmark;
                  imageContainer += '<div>';
                  $imageTileContainer.append(imageContainer);
-
-
-
             });
             $('.loading').hide();
+            $('#exportResultLink').show();
         }
 
     })

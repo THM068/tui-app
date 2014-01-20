@@ -13,6 +13,17 @@ class HomeController {
 
     def imageSearchService
 
+    def exportResults() {
+        String content= imageSearchService.exportSearchResults(session.imageSearchList)
+        byte [] byteArr = content.getBytes()
+        String filename = 'searchResults.xml'
+
+        response.setHeader("Content-disposition", "attachment; filename=${filename}")
+        response.setHeader("Content-Length", "${byteArr.length}")
+        response.contentType = "text/xml"
+        response.outputStream << byteArr
+    }
+
     def index() {
         def List<Map> imageList = null
         try{
@@ -39,6 +50,7 @@ class HomeController {
         if (search) {
             try {
                 imageList = imageSearchService.searchImages(searchParams)
+                session.imageSearchList = imageList
             }
             catch(ImageSearchException ex) {
                 map = [success: false, message: ex.getMessage()]

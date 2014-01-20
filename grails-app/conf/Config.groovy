@@ -94,3 +94,5 @@ grails.flikr.baseUrl = "http://api.flickr.com/"
 grails.flikr.path = "services/rest/"
 grails.flikr.apiKey = "18ca527064d2a55e4f09f655efcac8f3"
 
+grails.converters.default.pretty.print=true
+
