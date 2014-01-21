@@ -14,5 +14,12 @@
 </head>
 <body>
     <h3>My favourite images</h3>
+    <div id="image-tile-container">
+        <g:each in="${imageList}" var="favourite">
+            <div class="img-container">
+                <img src="${favourite.url}" alt="" title="${map?.title}">
+            </div>
+        </g:each>
+    </div>
 </body>
 </html>

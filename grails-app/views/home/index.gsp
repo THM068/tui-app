@@ -20,7 +20,7 @@
             <g:select name="numPerPage" from="${[5,10,20,30,40]}" value="20"  />
 
             <input type="submit" class="btn btn-primary" value="Search" id="searchBtn">
-            <g:link class="btn btn-primary" controller="home" action="exportResults" elementId="exportResultLink">Export Results</g:link>
+            <g:link class="btn btn-primary" controller="home" action="exportResults" elementId="exportResultLink">Export Search Results</g:link>
             <span class="loading">
                 <img src="${resource(dir: 'images', file: 'spinner.gif')}" alt="">
                 <span>Images loading ....</span>
@@ -35,6 +35,10 @@
             <g:render template="imageInfo"  model="[image: map]" />
         </g:each>
     </div>
+
+    <r:script>
+        var addToFavsUrl = '${createLink(controller: 'home', action: 'favourites')}';
+    </r:script>
 
 </body>
 </html>

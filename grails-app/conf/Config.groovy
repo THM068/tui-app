@@ -96,3 +96,8 @@ grails.flikr.apiKey = "18ca527064d2a55e4f09f655efcac8f3"
 
 grails.converters.default.pretty.print=true
 
+
+// Added by the Spring Security Core plugin:
+grails.plugins.springsecurity.userLookup.userDomainClassName = 'com.tui.image.search.User'
+grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'com.tui.image.search.UserRole'
+grails.plugins.springsecurity.authority.className = 'com.tui.image.search.Role'

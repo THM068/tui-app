@@ -12,8 +12,22 @@
             <div class="nav-collapse">
                 <ul class="nav">
                     <li class="active">
-                        <g:link controller="home" action="favourites">My Favourites</g:link>
+                        <g:link controller="home" action="myFavourites">My Favourites</g:link>
                     </li>
+                    <sec:ifNotLoggedIn>
+                        <li>
+                            <a id="loginLink" href="#loginForm">Login</a>
+                        </li>
+                    </sec:ifNotLoggedIn>
+                        <li class="logoutLink" style="display: none">
+                            <g:link controller="logout" action="index">Logout</g:link>
+                        </li>
+                    <sec:ifLoggedIn>
+                        <li>
+                            <g:link controller="logout" action="index">Logout</g:link>
+                        </li>
+                    </sec:ifLoggedIn>
+
                 </ul>
             </div><!--/.nav-collapse -->
         </div>

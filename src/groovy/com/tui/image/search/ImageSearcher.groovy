@@ -143,7 +143,7 @@ public class ImageSearcher {
 
 
     private String initTerm() {
-        def list = ['obama', 'spock', 'garnerstyle', 'manchester united']
+        def list = ['bengal tiger', 'spock', 'mandela', 'manchester city']
         int pos = Math.random() * list.size()
         return list.get(pos)
     }

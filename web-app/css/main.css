@@ -31,3 +31,9 @@ body {
     display: none;
 }
 
+.select-box {
+    height: 25px;
+    background: silver;
+    margin-top: -5px;
+}
+

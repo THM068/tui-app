@@ -20,6 +20,7 @@
 <div class="container">
     <g:layoutBody/>
     <r:layoutResources />
+    <g:render template="/layouts/partials/loginform" />
 </div>
 </body>
 </html>

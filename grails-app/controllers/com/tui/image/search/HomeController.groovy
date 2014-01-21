@@ -1,6 +1,7 @@
 package com.tui.image.search
 
 import grails.converters.JSON
+import grails.plugins.springsecurity.Secured
 
 /**
  * Created with IntelliJ IDEA.
@@ -12,6 +13,8 @@ import grails.converters.JSON
 class HomeController {
 
     def imageSearchService
+    def favouriteService
+    def userService
 
     def exportResults() {
         String content= imageSearchService.exportSearchResults(session.imageSearchList)
@@ -63,6 +66,32 @@ class HomeController {
     }
 
     def favourites() {
+         User user = userService.getLoggedUser()
+         def map = [:]
+         if (!user) {
+             map = [error: 'login', success: false]
+             render map as JSON
+             return
+         }
+         else {
+             String url = params.url
+             String title = params.title
+             String source = params.source
+             String author = params.author
 
+             println url
+
+             def favMap = [ user: user, url: url, title: title, source: source, author: author ]
+             favouriteService.addToFavourites(favMap)
+             map.success = true
+             render map as JSON
+             return
+         }
+    }
+
+    def myFavourites() {
+       def user = userService.loggedUser
+       def imageList = Favourite.findAllWhere(user: user)
+       [imageList: imageList]
     }
 }
